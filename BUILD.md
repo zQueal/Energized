@@ -64,8 +64,33 @@ __That's it.__ The compiled host file will be located at;
 
 > block/blu/formats/hosts
 
-Simply move it to your device (phone) storage and use a third party adblocker like AdAway to load the list from your devices' storage as a file. Apply the rules, and restart.
-
 The build method is the same for each list.
 
 _Note: The file locations in the script are relative, meaning you MUST compile from the source directory or the script will fail._
+
+--------------------------------
+
+# Using EnergizedProtection
+
+You may also use the backup feature of the script, though it's a bit combersome.
+
+1. Compile the list you want to use and rename `hosts` to `hosts-backup`
+2. `gzip` it using `7-zip`;
+
+> 7z c hosts-backup.gz ./hosts-backup
+
+3. Transfer `hosts-backup.gz` to your phones storage at `/sdcard/EnergizedProtection/hosts-backup.gz`
+4. Use the script menu option `rs` (restore) to restore the backup
+5. Back on the main menu, make **another backup**
+6. Restore **again** (yes, twice) using the backup you just made
+7. Restart your phone
+
+The number of domains being blocked still refuse to show up, but this seems to work fine.
+
+# Using AdAway
+
+1. Compile the list you want to use
+2. Transfer the `hosts` file to your phone storage
+3. Use AdAway to import the `hosts` file as a source
+4. Update and apply
+5. Restart your phone
