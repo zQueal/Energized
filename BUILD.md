@@ -4,9 +4,6 @@
  * git
  * jq
 
-## Optional
- * [task](https://github.com/go-task/task)
-
 # Build Steps
 
 1. Clone the Energized Block repository;
@@ -73,70 +70,26 @@ _Note: The file locations in the script are relative, meaning you MUST compile f
 
 # Automatic using Task
 
-Clone the block repository to `/tmp/block` and create a `Taskfile.yml` with the following contents;
+ * [Task](https://github.com/go-task/task)
+ * zstandard
 
-```
-version: '3'
+Clone this repository to get the Taskfile.yml. Run commands as necessary. On first run, make sure you clone the block repo;
 
-tasks:
-  build-all:
-    cmds:
-      - task: update
-      - task: spark
-      - task: basic
-      - task: blu
-      - task: bluGo
-      - task: porn
-      - task: ultimate
-      - task: unified
-      - task: compress
-  update:
-    dir: /tmp/block/assets/sources
-    cmds:
-      - sh filter.sh
-  spark:
-    dir: /tmp/block/spark/
-    cmds:
-      - sh build.sh
-  basic:
-    dir: /tmp/block/basic/
-    cmds:
-      - sh build.sh
-  blu:
-    dir: /tmp/block/blu/
-    cmds:
-      - sh build.sh
-  bluGo:
-    dir: /tmp/block/bluGo/
-    cmds:
-      - sh build.sh
-  porn:
-    dir: /tmp/block/porn/
-    cmds:
-      - sh build.sh
-  ultimate:
-    dir: /tmp/block/ultimate/
-    cmds:
-      - sh build.sh
-  unified:
-    dir: /tmp/block/unified/
-    cmds:
-      - sh build.sh
-  compress:
-    dir: /tmp/output/
-    cmds:
-      - 7z a spark.tar /tmp/block/spark/formats/hosts
-      - 7z a basic.tar /tmp/block/basic/formats/hosts
-      - 7z a blu.tar /tmp/block/blu/formats/hosts
-      - 7z a bluGo.tar /tmp/block/bluGo/formats/hosts
-      - 7z a porn.tar /tmp/block/porn/formats/hosts
-      - 7z a ultimate.tar /tmp/block/ultimate/formats/hosts
-      - 7z a unified.tar /tmp/block/unified/formats/hosts
-      - 7z a EnergizedProtection.tar /tmp/output/*.tar
-      - zstd --ultra -22 EnergizedProtection.tar -o EnergizedProtection.tar.zst
-```
+ * task clone
+   * Clones the EnergizedProtection block repository to `/tmp/block`
+ * task build
+   * Downloads/updates sources, and builds **all** packs to `/tmp/output/EnergizedProtection.tar.zst`
 
-and run `task build-all`. You can also build only a specific package by running `task update spark` to update sources and build the spark list.
+To build only a specific package;
+
+ * task clone
+   * Clones the EnergizedProtection block repository to `/tmp/block`
+ * task spark
+   * Builds **only** the spark package
+ * task readme
+   * Updates readme with current build information
+
+The compiled hosts file will be in `/tmp/block/spark/formats/hosts`
 
 --------------------------------
 
