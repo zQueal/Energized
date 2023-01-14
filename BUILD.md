@@ -155,7 +155,7 @@ You may also use the backup feature of the script, though it's a bit combersome.
 6. Restore **again** (yes, twice) using the backup you just made
 7. Restart your phone
 
-The number of domains being blocked still refuse to show up, but this seems to work fine.
+The number of domains being blocked still refuse to show up (for whatever reason), and the script will not trigger `[x] Secure` to actualize. This is because the script blocks access to `watchdog.energized.pro` to see if the hosts file is loaded correctly and is blocking at least that one domain. If it is, the status shows as "secure," if not, it shows as not secure. Since the domain is currently down, it doesn't work.
 
 # Using AdAway
 
