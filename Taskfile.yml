@@ -63,5 +63,6 @@ tasks:
       - 7z a porn.tar /tmp/block/porn/formats/hosts
       - 7z a ultimate.tar /tmp/block/ultimate/formats/hosts
       - 7z a unified.tar /tmp/block/unified/formats/hosts
-      - 7z a EnergizedProtection.tar /tmp/output/*.tar
+      - 7z a EnergizedProtection.tar /tmp/output/spark.tar /tmp/output/basic.tar /tmp/output/blu.tar /tmp/output/porn.tar /tmp/output/ultimate.tar /tmp/output/unified.tar
       - zstd --ultra -22 EnergizedProtection.tar -o EnergizedProtection.tar.zst
+      - rm *.tar
